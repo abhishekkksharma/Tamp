@@ -59,7 +59,7 @@ const Navbar = () => {
     return () => { document.body.style.overflow = 'unset'; };
   }, [isMenuOpen]);
 
-  const navLinks = ["NEW IN", "JEWELLERY", "CELEBRITY", "ABOUT"];
+  const navLinks = ["NEW IN", "JEWELLERY", "CONTACT", "ABOUT"];
 
   const navTextColor = isScrolled ? 'text-gray-800' : 'text-white';
   const logoColor = isScrolled ? 'text-gray-900' : 'text-white';

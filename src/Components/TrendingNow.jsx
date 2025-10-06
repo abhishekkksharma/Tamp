@@ -24,7 +24,7 @@ const trendingProducts = [
 // A single card component for better structure
 const JewelryCard = ({ imageUrl, title, alt }) => {
   return (
-    <div className="group flex flex-col items-center text-center cursor-pointer">
+    <div className="group flex flex-col items-center text-center cursor-pointer p-4 lg:p-0">
       <div className="overflow-hidden rounded-lg">
         <img
           src={imageUrl}
