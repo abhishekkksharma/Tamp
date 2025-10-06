@@ -33,7 +33,7 @@ export default function ContactForm() {
 
     try {
       const formDataToSend = new FormData();
-      formDataToSend.append('access_key', 'd290f82f-7500-42b4-8542-20474e674f20');
+      formDataToSend.append('access_key', 'e8a68a35-5235-4129-9ed1-9b058febe900');
       formDataToSend.append('firstName', formData.firstName);
       formDataToSend.append('lastName', formData.lastName);
       formDataToSend.append('email', formData.email);
@@ -90,7 +90,7 @@ export default function ContactForm() {
 
   return (
     <div className="min-h-screen bg-gray-50 p-4 flex items-center justify-center">
-      <div className="w-full max-w-4xl bg-white rounded-lg shadow-md p-8">
+      <div className="w-full max-w-4xl bg-white rounded-2xl shadow-md p-8">
         
         <div className="mb-8 text-center">
           <h1 className="text-3xl font-bold text-gray-800 mb-2">Contact Us</h1>
@@ -107,7 +107,7 @@ export default function ContactForm() {
               </div>
               <div>
                 <h4 className="font-semibold text-gray-800 text-sm mb-1">Email</h4>
-                <a href="mailto:atomconnect@mail.com" className="text-gray-600 text-sm hover:text-blue-600">atomconnect@mail.com</a>
+                <a href="mailto:kushalsaha229@gmail.com" className="text-gray-600 text-sm hover:text-blue-600">kushalsaha229@gmail.com</a>
               </div>
             </div>
 
@@ -117,7 +117,7 @@ export default function ContactForm() {
               </div>
               <div>
                 <h4 className="font-semibold text-gray-800 text-sm mb-1">Phone</h4>
-                <a href="tel:+917340733286" className="text-gray-600 text-sm hover:text-blue-600">(+91) 7340733286</a>
+                <a href="tel:+917340733286" className="text-gray-600 text-sm hover:text-blue-600">(+91) 76578 05385</a>
               </div>
             </div>
 
@@ -144,7 +144,7 @@ export default function ContactForm() {
                     id="firstName"
                     value={formData.firstName}
                     onChange={handleChange}
-                    placeholder="John"
+                    placeholder="Aryan"
                     required
                     className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
                   />
@@ -157,7 +157,7 @@ export default function ContactForm() {
                     id="lastName"
                     value={formData.lastName}
                     onChange={handleChange}
-                    placeholder="Doe"
+                    placeholder="Singh"
                     required
                     className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
                   />
@@ -172,7 +172,7 @@ export default function ContactForm() {
                   id="email"
                   value={formData.email}
                   onChange={handleChange}
-                  placeholder="john@example.com"
+                  placeholder="aryan@example.com"
                   required
                   className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
                 />
@@ -186,7 +186,7 @@ export default function ContactForm() {
                   id="phone"
                   value={formData.phone}
                   onChange={handleChange}
-                  placeholder="+91 98xx78xx70"
+                  placeholder="xxxxxxxxxx"
                   className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
                 />
               </div>
@@ -206,8 +206,8 @@ export default function ContactForm() {
               </div>
 
               {status === 'loading' && (
-                <div className="flex items-center gap-2 text-blue-600 text-sm">
-                  <div className="animate-spin rounded-full h-4 w-4 border-b-2 border-blue-600"></div>
+                <div className="flex items-center gap-2 text-white text-sm">
+                  <div className="animate-spin rounded-full h-4 w-4 border-b-2 border-black"></div>
                   Sending message...
                 </div>
               )}
@@ -220,7 +220,7 @@ export default function ContactForm() {
 
               <button
                 type="submit"
-                className="w-full py-3 px-6 bg-blue-600 text-white font-semibold rounded-lg hover:bg-blue-700 transition disabled:bg-gray-400 disabled:cursor-not-allowed"
+                className="w-full py-3 px-6 bg-black text-white font-semibold rounded-lg hover:bg-gray-800 transition disabled:bg-gray-400 disabled:cursor-not-allowed"
                 disabled={status === 'loading'}
               >
                 {status === 'loading' ? 'Sending...' : 'Send Message'}
