@@ -21,7 +21,7 @@ export default function Footer() {
 
   return (
     <footer
-      className="bg-gray-100 text-gray-800 py-12 px-4 overflow-hidden"
+      className="bg-gray-100 text-gray-800 py-12 px-4 overflow-hidden mt-20 lg:mt-0"
       aria-label="Site Footer"
     >
       <div className="max-w-6xl mx-auto">
@@ -57,11 +57,11 @@ export default function Footer() {
             <h3 className="text-gray-900 font-semibold text-base mb-4">SAY HELLO!</h3>
             <div className="space-y-3">
               <a
-                href="mailto:atomconnect@mail.com"
+                href="mailto:kushalsaha229@gmail.com"
                 className="flex items-center gap-2 text-sm hover:text-gray-600 transition"
               >
                 <MailIcon />
-                <span>atomconnect@mail.com</span>
+                <span>kushalsaha229@gmail.com</span>
               </a>
               <a
                 href="https://instagram.com/atomconnect"
@@ -70,7 +70,7 @@ export default function Footer() {
                 className="flex items-center gap-2 text-sm hover:text-gray-600 transition"
               >
                 <InstagramIcon />
-                <span>@atomconnect</span>
+                <span>@tamp</span>
               </a>
               <a
                 href="https://wa.me/917340733286"
@@ -100,7 +100,7 @@ export default function Footer() {
 
         {/* Brand / Logo */}
         <div className="font-serif font-bold text-8xl lg:text-9xl text-center mt-10 -mb-20 overflow-hidden ">
-          <h2 className='text-gray-400'>TAMP</h2>
+          <h2 className='text-gray-200 hover:text-gray-300'>TAMP</h2>
         </div>
         
       </div>
