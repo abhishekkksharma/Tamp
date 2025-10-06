@@ -89,7 +89,7 @@ export default function ContactForm() {
   );
 
   return (
-    <div className="min-h-screen bg-gray-50 p-4 flex items-center justify-center">
+    <div className="min-h-screen p-4 flex items-center justify-center">
       <div className="w-full max-w-4xl bg-white rounded-2xl shadow-md p-8">
         
         <div className="mb-8 text-center">
@@ -144,7 +144,7 @@ export default function ContactForm() {
                     id="firstName"
                     value={formData.firstName}
                     onChange={handleChange}
-                    placeholder="Aryan"
+                    placeholder=""
                     required
                     className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
                   />
@@ -157,7 +157,7 @@ export default function ContactForm() {
                     id="lastName"
                     value={formData.lastName}
                     onChange={handleChange}
-                    placeholder="Singh"
+                    placeholder=""
                     required
                     className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
                   />
@@ -172,7 +172,7 @@ export default function ContactForm() {
                   id="email"
                   value={formData.email}
                   onChange={handleChange}
-                  placeholder="aryan@example.com"
+                  placeholder=""
                   required
                   className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
                 />
@@ -186,7 +186,7 @@ export default function ContactForm() {
                   id="phone"
                   value={formData.phone}
                   onChange={handleChange}
-                  placeholder="xxxxxxxxxx"
+                  placeholder=""
                   className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
                 />
               </div>

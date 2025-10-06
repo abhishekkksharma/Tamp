@@ -8,7 +8,7 @@ const GiftOfChoiceCard = () => (
     style={{ backgroundImage: `url(${GiftImage2})` }}
   >
     {/* Semi-transparent overlay for text readability */}
-    <div className="absolute inset-0 bg-gray-100/40"></div>
+    <div className="absolute inset-0 bg-gray-100/30"></div>
     
     <div className="relative z-10 text-pink-700 p-4">
       <h3 className="text-4xl font-bold font-serif">#GiftOfChoice</h3>
@@ -26,7 +26,7 @@ const GiftOfChoiceCard = () => (
 );
 
 const GoldExchangeCard = () => (
-  <div className="bg-[#FFFBF5] p-6 rounded-2xl border-2 border-dashed border-amber-300 flex flex-col justify-center items-center text-center min-h-[320px] md:min-h-[280px]">
+  <div className="p-6 rounded-2xl border-2 border-dashed border-amber-300 flex flex-col justify-center items-center text-center min-h-[320px] md:min-h-[280px]">
     <img src="https://placehold.co/80x30/78350F/FFFFFF?text=TAMP" alt="Brand Logo" className="mb-4 rounded-sm" />
     <h3 className="text-xl font-semibold text-amber-900 leading-tight font-serif">
       Add your own message 
@@ -46,10 +46,11 @@ const GoldExchangeCard = () => (
 
 export default function PromoSection() {
   return (
-    <div className="bg-gray-50 p-8 sm:p-8 py-20">
+    <div className="p-8 sm:p-8 py-20">
         <div className="max-w-4xl mx-auto pb-20">
-          <div className='flex justify-center items-center mb-10'>
-          <p className='text-3xl font-serif text-gray-800'>Gift your people!</p>
+          <div className='flex justify-center items-center mb-10 flex-col'>
+          <p className='text-red-300 text-4xl font-semibold mb-4 animate-pulse tracking-widest text-center'>Coming soon !</p>
+          <p className='text-2xl font-serif text-gray-800'>Gift your people!</p>
           </div>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8 font-sans">
                 <GiftOfChoiceCard />

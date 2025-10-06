@@ -1,21 +1,31 @@
+import image1 from "../assets/Trending/1.png"
+import image2 from "../assets/Trending/2.png"
+import image3 from "../assets/Trending/3.png"
+
+
+// NOTE: The image imports are commented out as they are not used in the provided data.
+// If you use local images, you would uncomment these and update the trendingProducts array.
+// import image1 from "../assets/Trending/1.png"
+// import image2 from "../assets/Trending/2.png"
+// import image3 from "../assets/Trending/3.png"
 
 const trendingProducts = [
   {
     id: 1,
     title: 'Auspicious Occasion',
-    imageUrl: 'https://placehold.co/400x400/364531/FFFFFF?text=Jewelry+1',
+    imageUrl: image1,
     alt: 'Gold pendant for auspicious occasions',
   },
   {
     id: 2,
     title: 'Gifting Jewellery',
-    imageUrl: 'https://placehold.co/400x400/8B0000/FFFFFF?text=Jewelry+2',
+    imageUrl: image2,
     alt: 'Pendant in a gift box',
   },
   {
     id: 3,
     title: 'Drops of Radiance',
-    imageUrl: 'https://placehold.co/400x400/F5F5F5/333333?text=Jewelry+3',
+    imageUrl: image3,
     alt: 'Rose gold ring with a blue gemstone',
   },
 ];
@@ -24,11 +34,21 @@ const trendingProducts = [
 const JewelryCard = ({ imageUrl, title, alt }) => {
   return (
     <div className="group flex flex-col items-center text-center cursor-pointer p-4 lg:p-0">
-      <div className="overflow-hidden rounded-lg">
+      {/*
+        CHANGE 1: This container now has a fixed aspect ratio.
+        'aspect-square' makes the container a perfect square, forcing all
+        image areas to be the same size and shape.
+      */}
+      <div className="overflow-hidden rounded-lg w-full aspect-square">
         <img
           src={imageUrl}
           alt={alt}
-          className="w-full h-auto object-cover transition-transform duration-500 ease-in-out group-hover:scale-110"
+          /*
+            CHANGE 2: Changed 'h-auto' to 'h-full'.
+            This makes the image fill its container. The 'object-cover' class
+            ensures the image covers the area without being stretched or distorted.
+          */
+          className="w-full h-full object-cover transition-transform duration-500 ease-in-out group-hover:scale-110"
         />
       </div>
       <p className="mt-4 text-base text-gray-700 font-serif tracking-wide">

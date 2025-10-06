@@ -4,6 +4,7 @@ import CategoryGrid from "../Components/CategoryCards";
 import TrendingJewelry from "../Components/TrendingNow";
 import ContactForm from "../Components/ContactForm";
 import PromoSection from "../Components/Gifting";
+import Collections from "../Components/Collections";
 
 const HomePage = () => {
   return (
@@ -12,8 +13,9 @@ const HomePage = () => {
       <Sliding />
       <CategoryGrid />
       <TrendingJewelry />
-      <ContactForm />
+      <Collections/>
       <PromoSection/>
+      <ContactForm />
     </>
   );
 };
