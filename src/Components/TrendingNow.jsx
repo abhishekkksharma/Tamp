@@ -1,5 +1,4 @@
 
-// You can replace these with your actual product data
 const trendingProducts = [
   {
     id: 1,
