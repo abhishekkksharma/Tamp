@@ -73,13 +73,13 @@ export default function Footer() {
                 <span>@tamp</span>
               </a>
               <a
-                href="https://wa.me/917340733286"
+                href="https://wa.me/917657805385"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex items-center gap-2 text-sm hover:text-gray-600 transition"
               >
                 <WhatsAppIcon />
-                <span>(+91) 7340733286</span>
+                <span>(+91) 7657805385</span>
               </a>
             </div>
           </div>
@@ -90,8 +90,8 @@ export default function Footer() {
             <div className="space-y-2 text-sm">
               <p>Chandigarh, India</p>
               <p className="pt-2">
-                <a href="tel:+917340733286" className="hover:text-gray-600 transition">
-                  (+91) 7340733286
+                <a href="tel:+917657805385" className="hover:text-gray-600 transition">
+                  (+91) 7657805385
                 </a>
               </p>
             </div>
