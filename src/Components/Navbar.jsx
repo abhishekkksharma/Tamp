@@ -1,5 +1,5 @@
-import React, { useState, useEffect, useRef } from 'react';
-import { useLocation } from 'react-router-dom'; // Import useLocation to read the current URL
+import React, { useState, useEffect } from 'react';
+import { useLocation, Link } from 'react-router-dom'; // Import Link
 
 // --- SVG Icon Components ---
 
@@ -59,16 +59,13 @@ const Navbar = () => {
     };
 
     if (isHomePage) {
-      // On the homepage, listen for scroll events
       window.addEventListener('scroll', handleScroll);
-      handleScroll(); // Check scroll position on initial load
+      handleScroll();
       return () => window.removeEventListener('scroll', handleScroll);
     } else {
-      // On other pages, force the "scrolled" state
       setIsScrolled(true);
-      // No need for a scroll listener, so we don't return a cleanup function
     }
-  }, [isHomePage]); // This effect re-runs whenever the route changes
+  }, [isHomePage]);
 
   useEffect(() => {
     if (isMenuOpen) {
@@ -84,19 +81,18 @@ const Navbar = () => {
     { 
       name: "PRODUCTS", 
       dropdown: [
-        { name: "Earrings", href: "/shop" },
-        { name: "Finger Rings", href: "/shop" },
-        { name: "Pendants", href: "/shop" },
-        { name: "Bracelets", href: "/shop" },
-        { name: "Bangles", href: "/shop" },
-        { name: "Chains", href: "/shop" },
+        { name: "Earrings", href: "/shop/earrings" },
+        { name: "Finger Rings", href: "/shop/rings" },
+        { name: "Pendants", href: "/shop/pendants" },
+        { name: "Bracelets", href: "/shop/bracelets" },
+        { name: "Bangles", href: "/shop/bangles" },
+        { name: "Chains", href: "/shop/chains" },
       ] 
     },
-    { name: "CONTACT", href: "#" },
-    { name: "ABOUT", href: "#" },
+    { name: "CONTACT", href: "/contact" },
+    { name: "ABOUT", href: "/about" },
   ];
   
-  // This logic now works for all pages because `isScrolled` is managed based on the route.
   const navTextColor = isScrolled ? 'text-gray-800' : 'text-white';
   const logoColor = isScrolled ? 'text-gray-900' : 'text-white';
   const hoverBg = isScrolled ? 'hover:bg-gray-200/50' : 'hover:bg-white/20';
@@ -122,21 +118,20 @@ const Navbar = () => {
                   onMouseEnter={() => link.dropdown && setOpenDropdown(link.name)}
                   onMouseLeave={() => link.dropdown && setOpenDropdown(null)}
                 >
-                  <a 
-                    href={link.href || '#'} 
+                  <Link 
+                    to={link.href || '#'} 
                     className={`${navTextColor} ${isScrolled ? 'hover:text-gray-600' : 'hover:text-gray-200'} tracking-wider text-sm font-medium uppercase transition-colors duration-300 flex items-center gap-2 cursor-pointer`}
                   >
                     {link.name}
                     {link.dropdown && <ChevronDownIcon />}
-                  </a>
-                  {/* Desktop Dropdown Menu */}
+                  </Link>
                   {link.dropdown && openDropdown === link.name && (
                     <div className="absolute top-full left-1/2 -translate-x-1/2 w-48 pt-3 z-50">
                         <div className="bg-white rounded-md shadow-lg py-2">
                             {link.dropdown.map((item) => (
-                                <a key={item.name} href={item.href} className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 transition-colors">
+                                <Link key={item.name} to={item.href} className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 transition-colors">
                                 {item.name}
-                                </a>
+                                </Link>
                             ))}
                         </div>
                     </div>
@@ -147,9 +142,9 @@ const Navbar = () => {
 
             {/* Center: Logo */}
             <div className="flex justify-start md:justify-center flex-1">
-              <a href="#" className={`text-3xl font-serif font-bold tracking-widest transition-colors duration-300 ${logoColor}`}>
+              <Link to="/" className={`text-3xl font-serif font-bold tracking-widest transition-colors duration-300 ${logoColor}`}>
                 TAMP
-              </a>
+              </Link>
             </div>
 
             {/* Right: Icons & Mobile Menu Icon */}
@@ -163,24 +158,20 @@ const Navbar = () => {
               <button className={`p-2 rounded-full transition-colors duration-300 ${hoverBg}`}>
                 <BagIcon className={navTextColor} />
               </button>
-              {/* Hamburger Menu Icon */}
               <button onClick={() => setIsMenuOpen(true)} className={`md:hidden p-2 rounded-full transition-colors duration-300 ${hoverBg}`}>
                 <MenuIcon className={navTextColor} />
               </button>
             </div>
-
           </div>
         </div>
       </nav>
 
       {/* --- Mobile Sidebar --- */}
-      {/* Overlay */}
       <div 
         className={`fixed inset-0 bg-black/40 z-40 transition-opacity duration-300 ease-in-out ${isMenuOpen ? 'opacity-100' : 'opacity-0 pointer-events-none'}`}
         onClick={() => setIsMenuOpen(false)}
       ></div>
 
-      {/* Sidebar */}
       <div
         className={`fixed top-0 right-0 h-full w-4/5 max-w-sm bg-white z-50 transform transition-transform duration-300 ease-in-out ${isMenuOpen ? 'translate-x-0' : 'translate-x-full'}`}
       >
@@ -192,39 +183,41 @@ const Navbar = () => {
         <nav className="flex flex-col p-8">
           {navLinks.map((link) => (
             <div key={link.name} className="py-4 border-b border-gray-200">
-              <a
-                href={link.href || '#'}
+              <Link
+                to={link.href || '#'}
                 onClick={(e) => {
                   if (link.dropdown) {
                     e.preventDefault();
                     setOpenDropdown(openDropdown === link.name ? null : link.name);
+                  } else {
+                    setIsMenuOpen(false); // Close menu on regular link click
                   }
                 }}
                 className="text-gray-800 hover:text-gray-600 tracking-wider text-lg font-medium uppercase flex justify-between items-center"
               >
                 <span>{link.name}</span>
                 {link.dropdown && <ChevronDownIcon className={`${openDropdown === link.name ? 'rotate-180' : ''}`} />}
-              </a>
+              </Link>
               {link.dropdown && openDropdown === link.name && (
                 <div className="mt-4 pl-4 flex flex-col space-y-4">
                   {link.dropdown.map((item) => (
-                    <a key={item.name} href={item.href} className="text-gray-600 hover:text-gray-800 text-base font-normal uppercase tracking-wide">
+                    <Link key={item.name} to={item.href} onClick={() => setIsMenuOpen(false)} className="text-gray-600 hover:text-gray-800 text-base font-normal uppercase tracking-wide">
                       {item.name}
-                    </a>
+                    </Link>
                   ))}
                 </div>
               )}
             </div>
           ))}
             <div className="pt-8 flex flex-col space-y-8">
-              <a href="#" className="text-gray-800 hover:text-gray-600 tracking-wider text-lg font-medium uppercase flex items-center">
+              <Link to="#" onClick={() => setIsMenuOpen(false)} className="text-gray-800 hover:text-gray-600 tracking-wider text-lg font-medium uppercase flex items-center">
                 <UserIcon className="text-gray-800" />
                 <span className="ml-4">Account</span>
-              </a>
-              <a href="#" className="text-gray-800 hover:text-gray-600 tracking-wider text-lg font-medium uppercase flex items-center">
+              </Link>
+              <Link to="#" onClick={() => setIsMenuOpen(false)} className="text-gray-800 hover:text-gray-600 tracking-wider text-lg font-medium uppercase flex items-center">
                 <SearchIcon className="text-gray-800" />
                 <span className="ml-4">Search</span>
-              </a>
+              </Link>
             </div>
         </nav>
       </div>
@@ -233,4 +226,3 @@ const Navbar = () => {
 };
 
 export default Navbar;
-

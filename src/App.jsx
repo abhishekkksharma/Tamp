@@ -5,8 +5,6 @@ import Navbar from './Components/Navbar';
 import ShopPage from './Pages/ShopPage';
 import Footer from './Components/Footer';
 
-
-
 function App() {
   return (
     <div className='bg-white'>
@@ -14,6 +12,8 @@ function App() {
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/shop" element={<ShopPage />} />
+        {/* Add this dynamic route */}
+        <Route path="/shop/:category" element={<ShopPage />} /> 
         {/* <Route path="/about" element={<AboutPage />} /> */}
       </Routes>
       <Footer/>
