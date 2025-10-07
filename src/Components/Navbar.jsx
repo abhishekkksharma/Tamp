@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
+import { useLocation } from 'react-router-dom'; // Import useLocation to read the current URL
 
 // --- SVG Icon Components ---
 
@@ -49,13 +50,25 @@ const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [openDropdown, setOpenDropdown] = useState(null); 
 
+  const location = useLocation();
+  const isHomePage = location.pathname === '/';
+
   useEffect(() => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 10);
     };
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
+
+    if (isHomePage) {
+      // On the homepage, listen for scroll events
+      window.addEventListener('scroll', handleScroll);
+      handleScroll(); // Check scroll position on initial load
+      return () => window.removeEventListener('scroll', handleScroll);
+    } else {
+      // On other pages, force the "scrolled" state
+      setIsScrolled(true);
+      // No need for a scroll listener, so we don't return a cleanup function
+    }
+  }, [isHomePage]); // This effect re-runs whenever the route changes
 
   useEffect(() => {
     if (isMenuOpen) {
@@ -67,22 +80,23 @@ const Navbar = () => {
   }, [isMenuOpen]);
 
   const navLinks = [
-    { name: "NEW IN", href: "#" },
+    { name: "NEW IN", href: "/shop" },
     { 
       name: "PRODUCTS", 
       dropdown: [
-        { name: "Earrings", href: "#" },
-        { name: "Finger Rings", href: "#" },
-        { name: "Pendants", href: "#" },
-        { name: "Bracelets", href: "#" },
-        { name: "Bangles", href: "#" },
-        { name: "Chains", href: "#" },
+        { name: "Earrings", href: "/shop" },
+        { name: "Finger Rings", href: "/shop" },
+        { name: "Pendants", href: "/shop" },
+        { name: "Bracelets", href: "/shop" },
+        { name: "Bangles", href: "/shop" },
+        { name: "Chains", href: "/shop" },
       ] 
     },
     { name: "CONTACT", href: "#" },
     { name: "ABOUT", href: "#" },
   ];
-
+  
+  // This logic now works for all pages because `isScrolled` is managed based on the route.
   const navTextColor = isScrolled ? 'text-gray-800' : 'text-white';
   const logoColor = isScrolled ? 'text-gray-900' : 'text-white';
   const hoverBg = isScrolled ? 'hover:bg-gray-200/50' : 'hover:bg-white/20';
@@ -117,8 +131,6 @@ const Navbar = () => {
                   </a>
                   {/* Desktop Dropdown Menu */}
                   {link.dropdown && openDropdown === link.name && (
-                    // FIX: Use padding-top on an outer wrapper to create a "hover bridge" over the gap
-                    // between the link and the dropdown menu content.
                     <div className="absolute top-full left-1/2 -translate-x-1/2 w-48 pt-3 z-50">
                         <div className="bg-white rounded-md shadow-lg py-2">
                             {link.dropdown.map((item) => (
@@ -221,3 +233,4 @@ const Navbar = () => {
 };
 
 export default Navbar;
+
