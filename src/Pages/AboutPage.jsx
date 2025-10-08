@@ -1,11 +1,12 @@
 import RingImage from "../assets/About/ring.png"
 import Image from "../assets/About/image.png"
 
-const HomePage = () => {
+const AboutPage = () => {
   return (
     <>
-      <div className="flex flex-col justify-center items-center font-sans mt-30 px-10 lg:px-120">
-        <p className="text-6xl lg:text-[9rem] my-5 tracking-widest">TAMP</p>
+      <div className=" relative flex flex-col justify-center items-center font-sans mt-30 px-10 lg:px-120">
+        <p className="text-8xl lg:text-[9rem] my-5 tracking-widest z-10 text-gray-200">TAMP</p>
+        <p className="font-light text-lg text-center lg:text-3xl absolute top-12 lg:top-20 z-20 tracking-widest ">Taposi's Adornment of Modern Preciousness</p>
         <p className="text-center py-2 text-sm">
         At <span className="text-gray-400">Tamp</span>, we believe that everyone deserves to feel beautiful. As a retailer of aesthetic and contemporary jewelry, we offer thoughtfully curated pieces at customer-driven prices — where style meets affordability.
         </p>
@@ -32,4 +33,4 @@ const HomePage = () => {
   );
 };
 
-export default HomePage;
+export default AboutPage;

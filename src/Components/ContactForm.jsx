@@ -86,14 +86,14 @@ export default function ContactForm() {
       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
     </svg>
-  );
+  );  
 
   return (
-    <div className="min-h-screen p-4 flex items-center justify-center">
+    <div className="min-h-screen p-4 flex items-center justify-center mt-20 lg:mt-0">
       <div className="w-full max-w-4xl bg-white rounded-2xl shadow-md p-8">
         
         <div className="mb-8 text-center">
-          <h1 className="text-3xl font-bold text-gray-800 mb-2">Contact Us</h1>
+          <h1 className="text-4xl text-gray-800 mb-2">Contact Us</h1>
           <p className="text-gray-600">Have questions? We'd love to hear from you.</p>
         </div>
 

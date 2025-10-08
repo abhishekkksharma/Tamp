@@ -64,7 +64,7 @@ export default function Footer() {
                 <span>kushalsaha229@gmail.com</span>
               </a>
               <a
-                href="https://instagram.com/atomconnect"
+                href="https://instagram.com/"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex items-center gap-2 text-sm hover:text-gray-600 transition"
