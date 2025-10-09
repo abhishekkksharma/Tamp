@@ -16,7 +16,7 @@ const HomePage = () => {
       <TrendingJewelry />
       <Collections/>
       <PromoSection/>
-      <Instagram/>
+      {/* <Instagram/> */}
       <ContactForm />
     </>
   );
