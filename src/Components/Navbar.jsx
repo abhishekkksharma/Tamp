@@ -87,6 +87,7 @@ const Navbar = () => {
         { name: "Bracelets", href: "/shop/bracelets" },
         { name: "Bangles", href: "/shop/bangles" },
         { name: "Chains", href: "/shop/chains" },
+        { name: "All", href: "/shop/all" },
       ] 
     },
     { name: "CONTACT", href: "/contact" },
